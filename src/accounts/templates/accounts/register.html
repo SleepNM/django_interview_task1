@@ -1,0 +1,11 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<form method="POST">
+  {% csrf_token %}
+  {{ registration_form|crispy }}
+  <div class="d-grid gap-2 mt-3">
+    <button class="btn btn-outline-secondary" type="submit">Register and log in.</button>
+  </div>
+  {% endblock body %}
+</form>
