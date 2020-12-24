@@ -1,0 +1,17 @@
+{% extends 'accounts/base.html' %} {% block body %}
+<div class="card text-center mt-2">
+  <div class="card-header">User details Page</div>
+  <div class="card-body">
+    <h5 class="card-title">Username: <strong>{{ user }}</strong></h5>
+    <h5 class="card-title">
+      Employee ID: <strong>{{ user.employee_id }}</strong>
+    </h5>
+    <h5 class="card-title">
+      Login count: <strong>{{ user.login_count }}</strong>
+    </h5>
+    {% if request.user.is_superuser %}
+    <a href="" class="btn btn-outline-secondary">Log in as this user</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock body %}

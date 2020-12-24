@@ -126,6 +126,6 @@ AUTH_USER_MODEL = "accounts.User"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-# LOGIN_URL = 'home/login'
-# LOGIN_REDIRECT_URL = 'home'
-# LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"

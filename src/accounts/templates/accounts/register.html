@@ -7,5 +7,8 @@
   <div class="d-grid gap-2 mt-3">
     <button class="btn btn-outline-secondary" type="submit">Register and log in.</button>
   </div>
+  <div class="text-muted">
+    <small>Already registered? <a href="{% url 'login' %}">Log in.</a></small>
+  </div>
   {% endblock body %}
 </form>

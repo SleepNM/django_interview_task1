@@ -1,3 +1,24 @@
 {% extends 'accounts/base.html' %} {% block body %}
-<h1>Registered as {{ user }}</h1>
+{% if request.user.is_authenticated %}
+<div class="card text-center mt-2">
+  <div class="card-header">Home Page</div>
+  <div class="card-body">
+    <h5 class="card-title">Logged in as: <strong>{{ user }}</strong></h5>
+    <p class="card-text">Number of times you have logged in: {{ user.login_count }}</p>
+    <a href="{% url 'users' %}" class="btn btn-outline-secondary">User list</a>
+    <a href="{% url 'logout' %}" class="btn btn-outline-secondary">Log out</a>
+  </div>
+</div>
+{% else %}
+<div class="card text-center mt-2">
+  <div class="card-header">
+    Welcome to home page
+  </div>
+  <div class="card-body">
+    <a href="{% url 'login' %}" class="btn btn-outline-secondary">Log in</a>
+    <a href="{% url 'register' %}" class="btn btn-outline-secondary">Register</a>
+    <a href="{% url 'users' %}" class="btn btn-outline-secondary">User list</a>
+  </div>
+</div>
+{% endif %}
 {% endblock body %}
