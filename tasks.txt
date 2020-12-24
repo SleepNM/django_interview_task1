@@ -1,0 +1,15 @@
+There are tasks:
+
+Task 1:
+Add to the user model new field, to store their unique employee identification (alphanumeric).
+This field is not mandatory, and it should be read-only when user status is active.
+
+Add field to list and form view.
+
+Task 2:
+In the form view of user, display user login count. We should be able to see how many times user logged in.
+If necessary  add functionality to get how many times user tried to login (depends from Framework, as some of them already do have DB structure for this).
+
+Task 3:
+On user form view, add button "Login As", that button will execute functionality that we login as that user.
+Only admins can see/execute this functionality.
