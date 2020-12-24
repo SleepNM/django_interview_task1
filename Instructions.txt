@@ -1,0 +1,13 @@
+clone this repo -install requirements from requirements.txt
+cd into src
+$python manage.py runserver
+
+username:admin password:admin
+
+urls:
+localhost:8000/                         -Home page
+localhost:8000/users                    -List of all the users
+localhost:8000/users/details/<int:pk>   -Detail about specific user
+localhost:8000/login                    -Login page
+localhost:8000/register                 -Registration page
+localhost:8000/admin                    -Django admin panel (for testing)
