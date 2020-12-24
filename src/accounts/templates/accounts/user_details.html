@@ -11,7 +11,7 @@
     <h5 class="card-title">
       Login count: <strong>{{ user.login_count }}</strong>
     </h5>
-    {% if request.user.is_superuser %}
+    {% if request.user.is_superuser and user != request.user%}
     <form action="/hijack/{{ user.id }}/" method="post">
     {% csrf_token %}
     <button class="btn btn-outline-secondary" type="submit">Log in as {{ user.username }}</button>
