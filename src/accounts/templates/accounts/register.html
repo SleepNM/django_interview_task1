@@ -2,6 +2,19 @@
 {% load crispy_forms_tags %}
 {% block title %}Register{% endblock title %}
 {% block body %}
+{% if request.user.is_authenticated %}
+<div class="card text-center mt-2">
+  <div class="card-header">Log in page.</div>
+  <div class="card-body">
+    <h5 class="card-title">
+      You are already registered in as: <strong>{{ request.user.username }}</strong>
+    </h5> 
+    <a href="{% url 'logout' %}" class="btn btn-outline-secondary"
+      >Click here to log out</a
+    >
+  </div>
+</div>
+{% else %}
 <form method="POST">
   {% csrf_token %}
   {{ registration_form|crispy }}
@@ -11,5 +24,6 @@
   <div class="text-muted">
     <small>Already registered? <a href="{% url 'login' %}">Log in.</a></small>
   </div>
-  {% endblock body %}
 </form>
+{% endif %}
+{% endblock body %}

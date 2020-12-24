@@ -38,6 +38,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="{% url 'details' request.user.pk %}"
+                >Logged in as: {{ request.user }}</a
+              >
+            </li>
+            {% endif %}
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle active"
@@ -55,6 +64,11 @@
                   >
                 </li>
                 {% if user.is_authenticated %}
+                <li>
+                  <a class="dropdown-item" href="{% url 'details' user.pk %}"
+                    >Your profile</a
+                  >
+                </li>
                 <li>
                   <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                 </li>

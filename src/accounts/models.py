@@ -6,7 +6,7 @@ import time
 
 class User(AbstractUser):
     """
-    Modified User Model to ad employee_id field
+    Modified User Model to add employee_id field
     """
 
     employee_id = models.CharField(
@@ -19,14 +19,15 @@ class User(AbstractUser):
 
     def login_user(sender, request, user, **kwargs):
         """
-        Signal thet triggers whenever user loggs in and increments login_count number.
+        Function connected to a signal that triggers whenever
+        user loggs in and increments login_count number.
         """
         user.login_count += 1
         user.save()
 
     def save(self, *args, **kwargs):
         """
-        Overides the save methot to make sure if employee_id
+        Overides the save method to make sure if employee_id
         is left blank it will get a unique value
         """
         if self.employee_id == "":
@@ -36,4 +37,4 @@ class User(AbstractUser):
             # str() to turn it into a string. (5684231 to "5684231")
         super().save(*args, **kwargs)
 
-    user_logged_in.connect(login_user)
+    user_logged_in.connect(login_user)  # Connects singal to a function

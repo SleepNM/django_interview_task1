@@ -9,6 +9,9 @@ def home_view(request):
 
 
 def create_user_form(request):
+    """
+    Registration view
+    """
     context = {}
     if request.POST:
         form = CreateUserForm(request.POST)
@@ -32,7 +35,7 @@ def create_user_form(request):
 
 class UserListView(ListView):
     """
-    Lists all the users with a link to their details page and number of their logins
+    Lists all the users with a link to their details page and number of their logins.
     """
 
     model = get_user_model()
