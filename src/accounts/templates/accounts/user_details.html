@@ -1,4 +1,6 @@
-{% extends 'accounts/base.html' %} {% block body %}
+{% extends 'accounts/base.html' %}
+{% block title %}User details{% endblock title %}
+{% block body %}
 <div class="card text-center mt-2">
   <div class="card-header">User details Page</div>
   <div class="card-body">
@@ -10,7 +12,10 @@
       Login count: <strong>{{ user.login_count }}</strong>
     </h5>
     {% if request.user.is_superuser %}
-    <a href="" class="btn btn-outline-secondary">Log in as this user</a>
+    <form action="/hijack/{{ user.id }}/" method="post">
+    {% csrf_token %}
+    <button class="btn btn-outline-secondary" type="submit">Log in as {{ user.username }}</button>
+    </form>
     {% endif %}
   </div>
 </div>
