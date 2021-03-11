@@ -32,6 +32,7 @@ localhost:8000/users/details/<int:pk>   -Detail about specific user
 localhost:8000/login                    -Login page
 localhost:8000/register                 -Registration page
 localhost:8000/admin                    -Django admin panel (for testing)
+                                        -username:admin password:admin
 ```
 
 ## Task requirements
